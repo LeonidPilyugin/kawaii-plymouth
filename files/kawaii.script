@@ -1,0 +1,39 @@
+logo.image = Image("logo.png");
+
+logo.x = Window.GetWidth() / 2 - logo.image.GetWidth() / 2;
+logo.y = Window.GetHeight() / 2 - logo.image.GetHeight() / 2;
+
+logo.sprite = Sprite(logo.image);
+logo.sprite.SetX(logo.x);
+logo_sprite.SetY(logo.y);
+
+
+Window.SetBackgroundTopColor(0, 0, 0);
+Window.SetBackgroundBottomColor(0, 0, 0);
+
+if (Plymouth.GetMode() == "boot")
+{
+    box.image = Image("box");
+
+    box.sprite = Sprite(box.image);
+    box.x = Window.GetWidth() / 2 - box.image.GetWidth() / 2;
+    box.y = logo.y + logo.image.GetHeight()
+    box.sprite.SetPosition(box.x, box.y, 0);
+
+    bar.original_image = Image("bar.png");
+    bar.sprite = Sprite();
+    bar.x = box.x + box.image.GetWidth() / 2 - bar.original_image.GetWidth() / 2;
+    bar.y = box.y + box.image.GetHeight() / 2 - bar.original_image.GetHeight() / 2;
+    bar.sprite.SetPosition(bar.x, bar.y, 1);
+
+    fun progress_callback (time, progress)
+    {
+        if (bar.image.GetWidth() != Math.Int(bar.original_image.GetWidth() * progress))
+        {
+            bar.image = bar.original_image.Scale(bar.original_image.GetWidth(bar.original_image) * progress, bar.original_image.GetHeight());
+            bar.sprite.SetImage(bar.image);
+        }
+    }
+
+    Plymouth.SetBootProgressFunction (progress_callback);
+}
