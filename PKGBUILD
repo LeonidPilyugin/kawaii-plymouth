@@ -10,7 +10,7 @@ arch=(x86_64)
 depends=('plymouth')
 license=('GPL3')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/LeonidPilyugin/$pkgname/releases/download/v$pkgver/files.tar.gz")
-sha256sums=('1c9d045c2525ec4ccd6241300a10830f81cd0dec57ff6e3fe61cb75d4e458242')
+sha256sums=('97f703bc35f8f4cecb489084b20148db5ff5d27c69d8d73f59ddd30b7da26085')
 
 package() {
     dir=$pkgdir/usr/share/plymouth/themes/kawaii
